@@ -1,4 +1,4 @@
-runtime: python39               # The name of the runtime environment that is used by your app.
+runtime: python27               # The name of the runtime environment that is used by your app.
 instance_class: F1              # The instance class for this service, such as F1, F2, F4, F4_1G.
 service: home                   # Name of service, such as Billing, Product, etc.
 
