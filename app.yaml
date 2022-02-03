@@ -3,7 +3,7 @@ threadsafe: true                # Configures your application to use concurrent 
 api_version: 1                  # Version of the API in the given runtime environment that is used by your app.
 
 instance_class: F1              # The instance class for this service, such as F1, F2, F4, F4_1G.
-service: home                   # Name of service, such as Billing, Product, etc.
+service: default                # Name of service, such as Billing, Product, etc.
 
 handlers:                       # URL patterns and how they should be handled. Whetever request handle by executing application code, or by serving static files, such as images, CSS, or JavaScript.
 - url: /                        # Listen to request to root that handled by main.py script.                      
