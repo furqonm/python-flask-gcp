@@ -5,9 +5,12 @@ api_version: 1                  # Version of the API in the given runtime enviro
 instance_class: F1              # The instance class for this service, such as F1, F2, F4, F4_1G.
 service: home                   # Name of service, such as Billing, Product, etc.
 
-handlers:
-- url: /.*
+handlers:                       # URL patterns and how they should be handled. Whetever request handle by executing application code, or by serving static files, such as images, CSS, or JavaScript.
+- url: /                        # Listen to request to root that handled by main.py script.                      
   script: main.app
+
+- url: /_ah/warmup              # Listen to warmup requests that handled by warmup.py script.
+  script: warmup.app
 
 inbound_services:
 - warmup                        # Setup warmup request.
