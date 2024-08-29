@@ -1,6 +1,5 @@
-runtime: python27               # The name of the runtime environment that is used by your app.
-threadsafe: true                # Configures your application to use concurrent requests.
-api_version: 1                  # Version of the API in the given runtime environment that is used by your app.
+runtime: python312               # The name of the runtime environment that is used by your app.
+entrypoint: gunicorn -b :$PORT main:app
 
 instance_class: F1              # The instance class for this service, such as F1, F2, F4, F4_1G.
 service: default                # Name of service, such as Billing, Product, etc.
@@ -8,12 +7,6 @@ service: default                # Name of service, such as Billing, Product, etc
 handlers:                       # URL patterns and how they should be handled. Whetever request handle by executing application code, or by serving static files, such as images, CSS, or JavaScript.
 - url: /                        # Listen to request to root that handled by main.py script.                      
   script: main.app
-
-- url: /_ah/warmup              # Listen to warmup requests that handled by warmup.py script.
-  script: warmup.app
-
-inbound_services:
-- warmup                        # Setup warmup request.
 
 automatic_scaling:
   target_cpu_utilization: 0.65  # CPU utilization threshold for auto scalling a new instances. Input 0.5-0.95, the default is 0.6.
